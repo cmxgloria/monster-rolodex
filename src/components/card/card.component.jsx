@@ -4,10 +4,11 @@ import "./card.styles.css";
 
 export const Card = (props) => (
   <div className="card-container">
-    {/* <img
-      src={`https://robohash.org/${props.monster.id}?set=set2`}
+    <img
+      // set=set2 is parameter , it shows on api web
+      src={`https://robohash.org/${props.monster.id}?set=set2&size=180x180`}
       alt="monster"
-    /> */}
+    />
     <h2>{props.monster.name}</h2>
     <p>{props.monster.email}</p>
   </div>
