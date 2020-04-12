@@ -11,11 +11,16 @@ class App extends Component {
       searchField: "",
     };
   }
+
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((users) => this.setState({ monsters: users }));
   }
+
+  // arrow syntax instead of using binding.., if using constructor; otherwise no contructor syntax
+  handleChange = (e) => this.setState({ searchField: e.target.value });
+
   render() {
     const { monsters, searchField } = this.state;
     // to filter the matching letter
@@ -24,13 +29,11 @@ class App extends Component {
     );
     return (
       <div className="App">
-        <input
-          type="search"
-          placeholder="search monster"
-          onChange={(e) => this.setState({ searchField: e.target.value })}
+        <SearchBox
+          placeholder="search monsters"
+          handleChange={this.handleChange}
         />
         <CardList monsters={filterMonsters} />
-        <SearchBox onSearchChange={this.onSearchChange} />
       </div>
     );
   }
