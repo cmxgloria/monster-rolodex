@@ -1,12 +1,11 @@
 import React from "react";
-
 import "./card.styles.css";
 
 export const Card = (props) => (
   <div className="card-container">
     <img
       // set=set2 is parameter , it shows on api web
-      src={`https://robohash.org/${props.monster.id}?set=set2&size=180x180`}
+      src={`https://robohash.org/${props.monster.id}?set=set2&size=180x140`}
       alt="monster"
     />
     <h2>{props.monster.name}</h2>
